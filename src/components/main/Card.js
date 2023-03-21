@@ -1,13 +1,10 @@
 import React from 'react'
 
-function Card() {
+function Card({ src, alt }) {
   return (
-    <div className='card'>
-      <img
-        src={require('/home/kuki/Desktop/odin/odin/memory_card/src/images/Ferrari.jpg')}
-        alt='Ferrari'
-      />
-      <div className='cardText'>Ferrari</div>
+    <div className='card' id={alt}>
+      <img src={src} alt={alt} id={alt} />
+      <div className='cardText'>{alt}</div>
     </div>
   )
 }

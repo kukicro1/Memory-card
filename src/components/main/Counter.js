@@ -1,15 +1,15 @@
 import React from 'react'
 
-function Counter() {
+function Counter({ currentScore, bestScore }) {
   return (
     <div className='counter'>
-      <div className='currentScore'>
+      <div>
         <p>Current Score:</p>
-        <p>0</p>
+        <p>{currentScore}</p>
       </div>
-      <div className='bestScore'>
+      <div>
         <p>Best Score:</p>
-        <p>0</p>
+        <p>{bestScore}</p>
       </div>
     </div>
   )
