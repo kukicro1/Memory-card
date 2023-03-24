@@ -1,19 +1,18 @@
-import React, { useEffect } from 'react'
+import React from 'react'
 import Card from './Card'
-import uniqid from 'uniqid'
 
 function CardBoard({ cars, handleClick }) {
-  useEffect(() => {
-    const divs = document.querySelectorAll('.card')
-    divs.forEach((div) => {
-      div.addEventListener('click', handleClick, { capture: true })
-    })
-  })
-
   return (
     <div className='cardBoard'>
-      {cars.map((car) => {
-        return <Card src={car.src} alt={car.alt} key={uniqid()} />
+      {cars.map((car, i) => {
+        return (
+          <Card
+            src={car.src}
+            handleClick={handleClick}
+            alt={car.alt}
+            key={car.alt}
+          />
+        )
       })}
     </div>
   )

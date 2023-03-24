@@ -16,8 +16,8 @@ import rimacImg from '/home/kuki/Desktop/odin/odin/memory_card/src/images/Rimac.
 import teslaImg from '/home/kuki/Desktop/odin/odin/memory_card/src/images/Tesla.jpg'
 
 function Main() {
-  const [currentScore, setCurrentScore] = useState(() => 0)
-  const [bestScore, setBestScore] = useState(() => 0)
+  const [currentScore, setCurrentScore] = useState(0)
+  const [bestScore, setBestScore] = useState(0)
   const [clickedCards, setClickedCards] = useState(() => [])
   const [cars, setCars] = useState(() => [
     {
@@ -73,7 +73,7 @@ function Main() {
   useEffect(() => {
     setBestScore((prevBest) => {
       if (currentScore >= prevBest) {
-        return (prevBest = currentScore)
+        return currentScore
       } else if (prevBest > currentScore) {
         return prevBest
       }
@@ -85,14 +85,13 @@ function Main() {
     setCars(shuffled)
   }
 
-  function handleClick(e) {
-    const target = e.target
-    if (clickedCards.includes(target.id)) {
+  const handleClick = (id) => {
+    if (clickedCards.includes(id)) {
       setClickedCards([])
       setCurrentScore(0)
     } else {
       setClickedCards((prevClicked) => {
-        return [...prevClicked, target.id]
+        return [...prevClicked, id]
       })
       setCurrentScore((prevCurrent) => prevCurrent + 1)
     }

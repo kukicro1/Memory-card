@@ -1,9 +1,9 @@
 import React from 'react'
 
-function Card({ src, alt }) {
+function Card({ src, alt, handleClick }) {
   return (
-    <div className='card' id={alt}>
-      <img src={src} alt={alt} id={alt} />
+    <div className='card' onClick={() => handleClick(alt)}>
+      <img src={src} alt={alt} />
       <div className='cardText'>{alt}</div>
     </div>
   )
