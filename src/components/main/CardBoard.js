@@ -4,7 +4,7 @@ import Card from './Card'
 function CardBoard({ cars, handleClick }) {
   return (
     <div className='cardBoard'>
-      {cars.map((car, i) => {
+      {cars.map((car) => {
         return (
           <Card
             src={car.src}
